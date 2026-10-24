@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Instagram Account Cleaner: Remove Followers + Unfollow",
+  "version": "6.0.0",
+  "description": "Mencocokkan target untuk menghapus pengikut atau unfollow akun; akun privat/requested ditunda untuk konfirmasi terpisah.",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.instagram.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.instagram.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Instagram Remove Followers Helper"
+  }
+}
